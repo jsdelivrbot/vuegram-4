@@ -6,6 +6,13 @@
         :key="posts.indexOf(post)">
       </vuegram-post>
     </div>
+    <div v-if="step === 2">
+      <div class="selected-image"
+        :style="{ backgroundImage: 'url(' + image + ')' }"></div>
+      <div class="filter-container">
+        <!-- Where filter choices will be -->
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,7 +23,8 @@ export default {
   props: {
     step: Number,
     posts: Array,
-    filters: Array
+    filters: Array,
+    image: String
   },
   components: {
     "vuegram-post": VuegramPost
