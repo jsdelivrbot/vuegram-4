@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import EventBus from "./event-bus.js";
 import PhoneBody from "./components/PhoneBody";
 
 import posts from "./data/posts";
@@ -48,6 +49,11 @@ export default {
       selectedFilter: "",
       caption: ""
     };
+  },
+  created() {
+    EventBus.$on("filter-selected", evt => {
+      this.selectedFilter = evt.filter;
+    });
   },
   methods: {
     uploadImage(evt) {
